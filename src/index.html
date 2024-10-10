@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printway.io | Print On Demand</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./tailwind/output.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<!-- run tailwind: npx tailwindcss -i ./src/tailwind/input.css -o ./src/tailwind/output.css --watch -->
+
+<body>
+    <span class="fixed bottom-[30px] right-[20px] z-[500] cursor-pointer">
+        <span class="message-box-chat h-[60px] w-[60px] bg-[#f06022] rounded-[50%] flex justify-center items-center">
+            <img src="./public/image/message.svg" alt="">
+        </span>
+    </span>
+    <header>
+        <div class="home-page-header z-[500] fixed w-full bg-[#fbf9f8] flex justify-between text-sm h-[70px] px-8
+            items-center text-[#091e42] shadow">
+
+            <div class="flex lg:hidden">
+                <div>
+                    <button class="border p-2 rounded hover:border-blue-500 transition-all" onclick="sideBarOnClick()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                            <g stroke="#8F9BB3" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"
+                                clip-path="url(#a)">
+                                <path d="M.833 10h18.334M.833 4.167h18.334M.833 15.834h18.334" />
+                            </g>
+                            <defs>
+                                <clipPath id="a">
+                                    <path fill="#fff" d="M0 0h20v20H0z" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="sidebar" class="sidebar hidden">
+                <div class="px-4 py-6 flex justify-end border-b border-[#f0f0f0]" onclick="closeSideBar()">
+                    <svg class="mr-3 cursor-pointer" width="1em" height="1em" fill="currentColor" fill-rule="evenodd"
+                        aria-hidden="true" data-icon="close" viewBox="64 64 896 896">
+                        <path
+                            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 0 1 0 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 0 1 0 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 0 1-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 0 1-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7a.169.169 0 0 1-.06-.07.12.12 0 0 1 0-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7a.199.199 0 0 1-.06-.09.12.12 0 0 1 0-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 0 1 .07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 0 1 .07 0z" />
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <ul>
+                        <li class="font-bold text-lg mb-5">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="flex items-center gap-2 mb-5">
+                            <a href="#" class="text-lg">
+                                Catalog
+                            </a>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" fill="none">
+                                    <path stroke="#9A9A9A" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1.625 4.75 4.75 4.75-4.75" />
+                                </svg>
+                            </span>
+                        </li>
+                        <li class="mb-5">
+                            <a href="#" class="text-lg">Help Center</a>
+                        </li>
+                        <li class="mb-5">
+                            <a href="#" class="text-lg">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-lg">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="sidebar-active" onclick="closeSideBar()" class="sidebar-active hidden">
+
+            </div>
+
+            <div class="cursor-pointer">
+                <img src="./public/image/logo_header.webp" alt="">
+            </div>
+            <ul class="hidden header-navbar lg:flex gap-8">
+                <li class="font-bold">
+                    <a href="#">Home</a>
+                </li>
+                <li class="item-catalog flex items-center gap-1">
+                    <a href="#">Catalog</a>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" fill="none">
+                            <path stroke="#9A9A9A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1.625 4.75 4.75 4.75-4.75" />
+                        </svg>
+                    </span>
+                    <div class="all-product hidden">
+                        <div class="absolute w-svw top-10 left-0 h-12">
+
+                        </div>
+                        <div
+                            class=" bg-white absolute flex justify-center top-[71px] right-0 pt-12 pb-3 border-b w-full ">
+
+                            <div class="all-product-col w-40">
+                                <div class="product-title font-bold">
+                                    Home and Living
+                                </div>
+                                <div class="product-list">
+                                    <ul>
+                                        <li><a href="#">Cards</a></li>
+                                        <li><a href="#">Ornaments</a></li>
+                                        <li><a href="#">Signs</a></li>
+                                        <li><a href="#">Lights</a></li>
+                                        <li><a href="#">Posters</a></li>
+                                        <li><a href="#">Canvas</a></li>
+                                        <li><a href="#">Mugs</a></li>
+                                        <li><a href="#">Tumblers</a></li>
+                                        <li><a href="#">Water Bottles</a></li>
+                                        <li><a href="#">Blankets</a></li>
+                                        <li><a href="#">Puzzles</a></li>
+                                        <li><a href="#">Beddings</a></li>
+                                        <li><a href="#">Rugs</a></li>
+                                        <li><a href="#">Doormats</a></li>
+                                        <li><a href="#">Flags</a></li>
+                                        <li><a href="#">Home and Kitchen</a></li>
+                                        <li><a href="#">Pillows & Cases</a></li>
+                                        <li><a href="#">Stationery</a></li>
+                                        <li><a href="#">Home Decor</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="all-product-col w-40">
+                                <div class="product-title font-bold">
+                                    Accesssories
+                                </div>
+                                <div class="product-list">
+                                    <div class="product-list">
+                                        <ul>
+                                            <li><a href="#">Phone Cases</a></li>
+                                            <li><a href="#">Keychains</a></li>
+                                            <li><a href="#">Bookmarks</a></li>
+                                            <li><a href="#">Pets</a></li>
+                                            <li><a href="#">Tech accessories</a></li>
+                                            <li><a href="#">Car accessories</a></li>
+                                            <li><a href="#">Face masks</a></li>
+                                            <li><a href="#">Beaty Accessories</a></li>
+                                            <li><a href="#">Packaging</a></li>
+                                            <li><a href="#">Bags</a></li>
+                                            <li><a href="#">Hats</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                            <li><a href="#">Sports & games</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="all-product-col w-40">
+                                <div class="product-title font-bold">
+                                    Men's Clothing
+                                </div>
+                                <div class="product-list">
+                                    <ul>
+                                        <li><a href="#">T-shirts</a></li>
+                                        <li><a href="#">Sweatshirts</a></li>
+                                        <li><a href="#">Hoodies</a></li>
+                                        <li><a href="#">Tank-tops</a></li>
+                                        <li><a href="#">Polo Shirts</a></li>
+                                        <li><a href="#">Jackets & Coats</a></li>
+                                        <li><a href="#">Bottoms</a></li>
+                                        <li><a href="#">Long Sleeve T-shirts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="all-product-col w-40">
+                                <div class="product-title font-bold">
+                                    Women's Clothing
+                                </div>
+                                <div class="product-list">
+                                    <ul>
+                                        <li><a href="#">Dresses</a></li>
+                                        <li><a href="#">Women's Tank-tops</a></li>
+                                        <li><a href="#">Women's Sweatshirts</a></li>
+                                        <li><a href="#">Women's Hoodies</a></li>
+                                        <li><a href="#">Women's Jackets & Coats</a></li>
+                                        <li><a href="#">Women's Bottoms</a></li>
+                                        <li><a href="#">Women's Long Sleeve T-shirts</a></li>
+                                        <li><a href="#">Women's T-shirts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="all-product-col w-40">
+                                <div class="product-title font-bold">
+                                    Kid's Clothing
+                                </div>
+                                <div class="product-list">
+                                    <ul>
+                                        <li><a href="#">Baby bodysuits</a></li>
+                                        <li><a href="#">Kid's T-shirts</a></li>
+                                        <li><a href="#">Kid's Hoodies</a></li>
+                                        <li><a href="#">Kid's Jackets & Coats</a></li>
+                                        <li><a href="#">Kid's Sweatshirts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <a href="#">Help Center</a>
+                </li>
+                <li class="">
+                    <a href="#">Blog</a>
+                </li>
+                <li class="">
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
+            <div class="header-login">
+                <button
+                    class="hidden lg:inline-block bg-white w-[150px] h-10 py-1 px-[15px] border shadow-md rounded-lg hover:border-blue-500 transition-all">
+                    Login
+                </button>
+                <button class="block lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 16 17">
+                        <path fill="#333"
+                            d="M14.333 16v-1.667A3.333 3.333 0 0 0 11 11H4.333A3.333 3.333 0 0 0 1 14.333V16M7.667 7.667a3.333 3.333 0 1 0 0-6.667 3.333 3.333 0 0 0 0 6.667Z" />
+                        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.333 16v-1.667A3.333 3.333 0 0 0 11 11H4.333A3.333 3.333 0 0 0 1 14.333V16h13.333ZM11 4.333a3.333 3.333 0 1 1-6.667 0 3.333 3.333 0 0 1 6.667 0Z" />
+                    </svg>
+                </button>
+            </div>
+        </div class="class= home-page-header z-50 fixed w-full bg-[#fbf9f8] flex justify-between text-sm h-[70px] px-8
+            items-center text-[#091e42] shadow">
+    </header>
+    <div class="home-page-body pt-[70px]">
+        <div class="bg-[#fbf9f8] md:flex md:justify-center">
+            <div
+                class="flex flex-col md:flex-row  gap-[60px] justify-center max-w-screen-xl xl:mx-[129.5px] pt-[34px] pb-[52px] px-8">
+                <div class=" max-w-[500px] md:max-w-[540px] md:w-3/6 h-full">
+                    <div class="md:text-5xl text-3xl font-bold text-[#211e1d]">
+                        Your Custom Prints, Your Way, On-Demand!
+                    </div>
+                    <div class="mt-8 text-[#42526e]">
+                        <div class="mb-6 flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                    <path fill="#1ABC9C"
+                                        d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm3.59 8.59-3.52 3.52c-.15.15-.34.22-.53.22s-.39-.07-.53-.22l-1.76-1.76c-.3-.29-.3-.77 0-1.06.29-.29.77-.29 1.06 0l1.23 1.23 2.99-2.99c.29-.29.76-.29 1.06 0 .29.29.29.77 0 1.06Z" />
+                                </svg>
+                            </div>
+                            <div class="pl-1 text-base">
+                                100% free to use
+                            </div>
+                        </div>
+                        <div class="mb-6 flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                    <path fill="#1ABC9C"
+                                        d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm3.59 8.59-3.52 3.52c-.15.15-.34.22-.53.22s-.39-.07-.53-.22l-1.76-1.76c-.3-.29-.3-.77 0-1.06.29-.29.77-.29 1.06 0l1.23 1.23 2.99-2.99c.29-.29.76-.29 1.06 0 .29.29.29.77 0 1.06Z" />
+                                </svg>
+                            </div>
+                            <div class="pl-1 text-base">
+                                300+ High-Quality Products
+                            </div>
+                        </div>
+                        <div class="mb-6 flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                    <path fill="#1ABC9C"
+                                        d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm3.59 8.59-3.52 3.52c-.15.15-.34.22-.53.22s-.39-.07-.53-.22l-1.76-1.76c-.3-.29-.3-.77 0-1.06.29-.29.77-.29 1.06 0l1.23 1.23 2.99-2.99c.29-.29.76-.29 1.06 0 .29.29.29.77 0 1.06Z" />
+                                </svg>
+                            </div>
+                            <div class="pl-1 text-base">
+                                No order minimums
+                            </div>
+                        </div>
+                        <div class="mb-6 flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                    <path fill="#1ABC9C"
+                                        d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2Zm3.59 8.59-3.52 3.52c-.15.15-.34.22-.53.22s-.39-.07-.53-.22l-1.76-1.76c-.3-.29-.3-.77 0-1.06.29-.29.77-.29 1.06 0l1.23 1.23 2.99-2.99c.29-.29.76-.29 1.06 0 .29.29.29.77 0 1.06Z" />
+                                </svg>
+                            </div>
+                            <div class="pl-1 text-base">
+                                Complete automation
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button class="py-3 max-md:w-[100%] md:px-[50px] text-white bg-[#f06022] rounded-md">
+                            Start Selling
+                        </button>
+                    </div>
+                </div>
+                <div class="max-w-[575px] md:h-[540px] md:w-3/6 md:gap-3  flex flex-col md:flex-row">
+                    <div class=" cursor-pointer w-full justify-center md:w-[80%] flex">
+                        <div id="image-big-1" class="shadow h-[530px] rounded-2xl w-full bg-white flex flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/1.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    5 Layered Fridge Photo Magnet
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $5.7
+                                </div>
+                            </div>
+                        </div>
+                        <div id="image-big-2" class="shadow hidden h-[530px] rounded-2xl w-full bg-white flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/2.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    Custom 5 Layered Sun Visor Clip
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $5.7
+                                </div>
+                            </div>
+                        </div>
+                        <div id="image-big-3" class="shadow hidden h-[530px] rounded-2xl w-full bg-white flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/3.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    Clipboard
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $3
+                                </div>
+                            </div>
+                        </div>
+                        <div id="image-big-4" class="shadow hidden h-[530px] rounded-2xl w-full bg-white flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/4.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    Wooden Memorial Box
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $5.24
+                                </div>
+                            </div>
+                        </div>
+                        <div id="image-big-5" class="shadow hidden h-[530px] rounded-2xl w-full bg-white flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/5.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    Chunky Shoes
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $40
+                                </div>
+                            </div>
+                        </div>
+                        <div id="image-big-6" class="shadow hidden h-[530px] rounded-2xl w-full bg-white flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/6.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    Custom 4 Layered Sun Visor Clip
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $4.7
+                                </div>
+                            </div>
+                        </div>
+                        <div id="image-big-7" class="shadow hidden h-[530px] rounded-2xl w-full bg-white flex-col">
+                            <div class="h-[463px]">
+                                <img src="./public/image/7.png" alt="">
+                            </div>
+                            <div>
+                                <div class="font-bold text-center mb-2">
+                                    5 Layered Fridge Photo Magnet
+                                </div>
+                                <div class="text-center text-sm text-[#091E42]">
+                                    Start from $5.7
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class=" mt-4 items-baseline grid grid-cols-5 overflow-hidden  md:flex md:flex-col md:overflow-y-visible md:overflow-x-hidden no-scrollbar">
+                        <div id="image-small-1" onclick="chooseProductOnClick(this)"
+                            class="image-active w-[72px] h-[72px] mx-auto my-1 md:my-0 md:mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/1.png" alt="">
+                        </div>
+                        <div id="image-small-2" onclick="chooseProductOnClick(this)"
+                            class="w-[72px] h-[72px] max-w-full mx-auto my-0 mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/2.png" alt="">
+                        </div>
+                        <div id="image-small-3" onclick="chooseProductOnClick(this)"
+                            class="w-[72px] h-[72px] mx-auto my-0 mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/3.png" alt="">
+                        </div>
+                        <div id="image-small-4" onclick="chooseProductOnClick(this)"
+                            class="w-[72px] h-[72px] mx-auto my-0 mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/4.png" alt="">
+                        </div>
+                        <div id="image-small-5" onclick="chooseProductOnClick(this)"
+                            class="w-[72px] h-[72px] mx-auto my-0 mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/5.png" alt="">
+                        </div>
+                        <div id="image-small-6" onclick="chooseProductOnClick(this)"
+                            class="hidden md:block w-[72px] h-[72px] mx-auto my-0 mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/6.png" alt="">
+                        </div>
+                        <div id="image-small-7"
+                            class="hidden md:block  w-[72px] h-[72px] mx-auto my-0 mb-4 shadow rounded">
+                            <img class="max-w-full" src="./public/image/7.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-14 bg-[#fbf9f8] justify-center">
+            <img class="mx-auto" src="./public/image/banner_home.jpg" alt="">
+        </div>
+        <div class="relative">
+            <div class="w-full h-[50%] -z-[1] absolute top-0 bg-[#fbf9f8]">
+            </div>
+            <div
+                class="p-8 sm:my-0 mx-auto flex flex-col items-center sm:items-start sm:flex-row gap-8 max-w-[1175px] rounded-2xl bg-[#fff] shadow-[0_12px_24px_0_rgba(0,0,0,0.1)]">
+                <div class="flex-1 flex flex-col items-center sm:items-start max-w-[311px] sm:max-w-none">
+                    <div class="">
+                        <img src="https://printway.io/images/img3.png" alt="">
+                    </div>
+                    <div class="pt-4 text-center sm:text-start">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            Greater Profits
+                        </div>
+                        <div class="text-[#42526e] leading-6">
+                            We offer products with the most competitive price to help your business successful.
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col items-center sm:items-start max-w-[311px] sm:max-w-none">
+                    <div>
+                        <img src="https://printway.io/images/img3.png" alt="">
+                    </div>
+                    <div class="pt-4 text-center sm:text-start">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            Strong scale expansion
+                        </div>
+                        <div class="text-[#42526e] leading-6">
+                            With 6 printing manufacturers worldwide including: Vietnam, US, UK, EU, Australia, and
+                            China. We easy to handle your orders during peak seasons. </div>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col items-center sm:items-start max-w-[311px] sm:max-w-none">
+                    <div>
+                        <img src="https://printway.io/images/img3.png" alt="">
+                    </div>
+                    <div class="pt-4 text-center sm:text-start">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            Product variety
+                        </div>
+                        <div class="text-[#42526e] leading-6">
+                            With 300+ products including clothing, home & living, accessories, you can easily choose
+                            best product to grow your business. </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="mt-[88px]">
+            <div class="max-w-[554px] mx-auto my-0 text-center px-4 h-[102px] sm:h-[114px]">
+                <h2 class="text-[#f06022] leading-[22px] text-[14px] mb-3 font-bold font-plus-jakarta uppercase">
+                    4 simple steps for your business to become successful
+                </h2>
+                <h2
+                    class="text-[#091e42] font-bold font-plus-jakarta leading-8 sm:leading-[38px] text-[24px] sm:text-[30px]">
+                    From Your Storefront to Your Customer's Hands
+                </h2>
+            </div>
+            <div
+                class="relative p-8 max-w-[1239px] mx-auto my-0  items-center sm:items-start flex flex-col sm:flex-row gap-[1.5rem] z-50 font-plus-jakarta">
+                <div class="">
+                    <div class="relative flex justify-center sm:justify-normal">
+                        <img src="https://printway.io/images/step1.png" alt="">
+                        <div class="border_line z-1 hidden sm:block">
+                        </div>
+                        <div class="relative z-[2]">
+                            <div class="circle_step">
+                                <span class="text-[#f06022] font-semibold font-plus-jakarta">
+                                    1
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-3 pb-6 sm:text-left text-center">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            <span>
+                                Connect Store
+                            </span>
+                        </div>
+                        <p class="text-[#42526e] leading-6">
+                            Connect Your Store To Printway, Add Your Products, And Set Your Own Retail Prices
+                        </p>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="relative flex justify-center sm:justify-normal">
+                        <img src="https://printway.io/images/step1.png" alt="">
+                        <div class="border_line z-1 hidden sm:block">
+                        </div>
+                        <div class="relative z-[2]">
+                            <div class="circle_step">
+                                <span class="text-[#f06022] font-semibold font-plus-jakarta">
+                                    2
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-3 pb-6 sm:text-left text-center">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            <span>
+                                Customer Places Their Order
+                            </span>
+                        </div>
+                        <p class="text-[#42526e] leading-6">
+                            A Customer Buys From Your Store, We Charge For Fulfillment, And You Keep The Profit
+                        </p>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="relative flex justify-center sm:justify-normal">
+                        <img src="https://printway.io/images/step1.png" alt="">
+                        <div class="border_line z-1 hidden sm:block">
+                        </div>
+                        <div class="relative z-[2]">
+                            <div class="circle_step">
+                                <span class="text-[#f06022] font-semibold font-plus-jakarta">
+                                    3
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-3 pb-6 sm:text-left text-center">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            <span>
+                                Printway Fulfills The Order
+                            </span>
+                        </div>
+                        <p class="text-[#42526e] leading-6">
+                            We Take Care Of Your Order From A To Z, And Control The Whole Fulfillment Process
+                        </p>
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="relative flex justify-center sm:justify-normal">
+                        <img src="https://printway.io/images/step1.png" alt="">
+
+                        <div class="relative flex justify-center">
+                            <div class="circle_step">
+                                <span class="text-[#f06022] font-semibold font-plus-jakarta">
+                                    4
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-3 pb-6 sm:text-left text-center">
+                        <div class="font-bold text-[18px] leading-[26px] mb-3">
+                            <span>
+                                Order Ships To Your Customer
+                            </span>
+                        </div>
+                        <p class="text-[#42526e] leading-6">
+                            Your Customer Receives Their Order With Your Brand Attached To It
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-[72px] bg-[#f7faff]">
+            <div class="max-w-[554px] my-0 mx-auto text-center px-4">
+                <h3 class="uppercase text-[#f06022] leading-[22px] font-bold text-[14px]">
+                    Highlight Categories
+                </h3>
+                <div class="mt-4">
+                    <span class="text-[24px] sm:text-[30px] leading-8 sm:leading-[38px] text-[#091e42] font-bold">
+                        Customize products & start selling in minutes
+                    </span>
+                </div>
+            </div>
+            <div class="pt-[42px] px-8 pb-4 my-0 mx-auto">
+                <div class="pb-8 flex justify-center ">
+                    <div class="items_hover flex flex-col mr-[25px] bg-white cursor-pointer hover:shadow-lg">
+                        <div class="max-w-[275px]">
+                            <img src="https://cdn.printway.io/lzi/666c0e896f96e33ccef7c815_800x800.jpeg" alt="">
+                        </div>
+                        <div class="p-4  text-center">
+                            <h3 class="text-[18px] font-bold leading-[26px] mb-2 text-[#091e42]">
+                                Women's Clothing
+                            </h3>
+                            <div class="text-[16px] font-medium leading-[24px] text-[#42526e]">
+                                <span>
+                                    42 Products
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items_hover flex flex-col mr-[25px] bg-white cursor-pointer hover:shadow-lg">
+                        <div class="max-w-[275px]">
+                            <img src="https://cdn.printway.io/lzi/666bf7e8e9f8ecbc0656be49_800x800.jpeg" alt="">
+                        </div>
+                        <div class="p-4  text-center">
+                            <h3 class="text-[18px] font-bold leading-[26px] mb-2 text-[#091e42]">
+                                Accessories
+                            </h3>
+                            <div class="text-[16px] font-medium leading-[24px] text-[#42526e]">
+                                <span>
+                                    63 Products
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items_hover hidden sm:flex flex-col mr-[25px] bg-white cursor-pointer hover:shadow-lg">
+                        <div class="max-w-[275px]">
+                            <img src="https://cdn.printway.io/lzi/666c00e33dea86065a84db26_800x800.jpeg" alt="">
+                        </div>
+                        <div class="p-4  text-center">
+                            <h3 class="text-[18px] font-bold leading-[26px] mb-2 text-[#091e42]">
+                                Men's Clothing
+                            </h3>
+                            <div class="text-[16px] font-medium leading-[24px] text-[#42526e]">
+                                <span>
+                                    44 Products
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="items_hover hidden md:flex flex-col mr-[25px] bg-white cursor-pointer hover:shadow-lg">
+                        <div class="max-w-[275px]">
+                            <img src="https://cdn.printway.io/lzi/666bc61b7ecd3a7dbd7c4624_800x800.jpeg" alt="">
+                        </div>
+                        <div class="p-4  text-center">
+                            <h3 class="text-[18px] font-bold leading-[26px] mb-2 text-[#091e42]">
+                                Home and Living
+                            </h3>
+                            <div class="text-[16px] font-medium leading-[24px] text-[#42526e]">
+                                <span>
+                                    165 Products
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div class="mt-2 flex items-center justify-center">
+                <button class="bg-[#f06022] text-white px-[50px] py-3 rounded hover:bg-[#091e42] transition-all">
+                    View all products
+                </button>
+            </div>
+        </div>
+        <div class="py-[100px] px-8">
+            <div class="text-center">
+                <h2 class="text-[#f06022] leading-[22px] text-[14px] mb-3 font-bold font-plus-jakarta uppercase">
+                    Easy integration
+                </h2>
+                <h2
+                    class="text-[#091e42] font-bold font-plus-jakarta leading-8 sm:leading-[38px] text-[24px] sm:text-[30px]">
+                    Popular ecommerce platform ready to connect
+                </h2>
+            </div>
+            <div class="flex justify-center mt-6">
+                <div class="hidden md:block">
+                    <img src="https://printway.io/images/ecommerce.png" alt="">
+                </div>
+                <div class="block md:hidden">
+                    <img src="https://printway.io/images/integrations_mob.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#f7faff] relative">
+            <div class="w-full flex items-center justify-center absolute -top-[55px]">
+                <img src="https://printway.io/images/logo_line.png" alt="">
+            </div>
+            <div class="py-[72px]">
+                <div class="text-center ">
+                    <h2 class="text-[#f06022] leading-[22px] text-[14px] mb-3 font-bold font-plus-jakarta uppercase">
+                        What will Printway help you
+                    </h2>
+                    <h2
+                        class="text-[#091e42] font-bold font-plus-jakarta leading-8 sm:leading-[38px] text-[24px] sm:text-[30px]">
+                        We're different, empowering your business to thrive
+                    </h2>
+                </div>
+                <div class="p-8">
+                    <div
+                        class="xl:mx-[146.5px] grid  grid-cols-1 sm:grid-cols-2 sm:grid-row-3 lg:grid-cols-3 lg:grid-rows-2 gap-6">
+                        <div
+                            class="p-6 bg-[#fff] border-[#d4e1f4] rounded-lg border-t-2 border-r-1 border-b-0 border-l-1">
+                            <div>
+                                <img src="https://printway.io/images/dif1.png" alt="">
+                            </div>
+                            <div class="mt-6 min-h-[72px]">
+                                <h3 class="font-bold text-[18px] leading-[26px] mb-1">
+                                    Free to Use
+                                </h3>
+                                <div>
+                                    <p class="text-[#42526e] font-medium leading-6">
+                                        Only Pay For Fulfillment & Shipping when orders Come In
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 bg-[#fff] border-[#d4e1f4] rounded-lg border-t-2 border-r-1 border-b-0 border-l-1">
+                            <div>
+                                <img src="https://printway.io/images/dif2.png" alt="">
+                            </div>
+                            <div class="mt-6 min-h-[72px]">
+                                <h3 class="font-bold text-[18px] leading-[26px] mb-1">
+                                    No Order Minimus
+                                </h3>
+                                <div>
+                                    <p class="text-[#42526e] leading-6">
+                                        Enjoy The Freedom to experiment with your store concept and products with no
+                                        order minimums </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 bg-[#fff] border-[#d4e1f4] rounded-lg border-t-2 border-r-1 border-b-0 border-l-1">
+                            <div>
+                                <img src="https://printway.io/images/dif3.png" alt="">
+                            </div>
+                            <div class="mt-6 min-h-[72px]">
+                                <h3 class="font-bold text-[18px] leading-[26px] mb-1">
+                                    Control the Entire Progress
+                                </h3>
+                                <div>
+                                    <p class="text-[#42526e] leading-6">
+                                        All of your orders are under your control from production to shipping
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 bg-[#fff] border-[#d4e1f4] rounded-lg border-t-2 border-r-1 border-b-0 border-l-1">
+                            <div>
+                                <img src="https://printway.io/images/dif4.png" alt="">
+                            </div>
+                            <div class="mt-6 min-h-[72px]">
+                                <h3 class="font-bold text-[18px] leading-[26px] mb-1">
+                                    Complete automation
+                                </h3>
+                                <div>
+                                    <p class="text-[#42526e] leading-6">
+                                        Our integrations allow automatic order import from your store
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 bg-[#fff] border-[#d4e1f4] rounded-lg border-t-2 border-r-1 border-b-0 border-l-1">
+                            <div>
+                                <img src="https://printway.io/images/dif5.png" alt="">
+                            </div>
+                            <div class="mt-6 min-h-[72px]">
+                                <h3 class="font-bold text-[18px] leading-[26px] mb-1">
+                                    Custom branding
+                                </h3>
+                                <div>
+                                    <p class="text-[#42526e] leading-6">
+                                        we fulfill & ship everything under your brand with custom label, pack-ins,
+                                        and
+                                        more
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 bg-[#fff] border-[#d4e1f4] rounded-lg border-t-2 border-r-1 border-b-0 border-l-1">
+                            <div>
+                                <img src="https://printway.io/images/dif6.png" alt="">
+                            </div>
+                            <div class="mt-6 min-h-[72px]">
+                                <h3 class="font-bold text-[18px] leading-[26px] mb-1">
+                                    24/7 Support
+                                </h3>
+                                <div>
+                                    <p class="text-[#42526e] leading-6">
+                                        Our consulting team is ready to support you 24/7. We always care about
+                                        everything you need.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-[60px] flex items-center justify-center">
+                        <button
+                            class="bg-[#f06022] text-white px-[50px] py-3 rounded hover:bg-[#091e42] transition-all">
+                            Start Your Bussiness
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-[100px] px-8  relative">
+            <div class="w-full h-[50%] -z-[1] absolute left-0 top-0 bg-[#f7faff]">
+            </div>
+            <div class="flex mx-auto my-0 max-w-[1175px]  bg-white justify-center items-center shadow-md rounded-3xl">
+                <div class="sm:px-[100px]">
+                    <div class=" flex sm:flex-row flex-col sm:h-[334px] ">
+                        <div class=" contact_box_home text-center sm:text-left flex flex-col justify-center">
+                            <div
+                                class="leading-[28px] md:leading-[38px] text-[24px] md:text-30px text-[#091e42] font-bold pb-[36px]">
+                                Managing A Large Volume Business? Contact Printway now
+                            </div>
+                            <div>
+                                <button
+                                    class="bg-[#f06022] text-white px-[50px] py-3 rounded hover:bg-[#091e42] transition-all">
+                                    Start Your Bussiness
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-4 sm:pt-0">
+                            <img class="" src="./public/image/world-fake.PNG" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="home-page-footer">
+        <div class="pt-[80px] px-2 md:px-4">
+            <div class="md:px-4 max-w-[1175px] mx-auto flex flex-col md:flex-row justify-between">
+                <div>
+                    <div class="w-[166px] sm:w-[201px] lg:w-[215px] mx-auto md:mx-0">
+                        <img src="https://fulfill-s3-dev.s3.ap-southeast-1.amazonaws.com/demo-image/tester.05_logohome-1671703484127-ede99f2c-5733-4593-81b4-f11afbb4582b.png"
+                            alt="">
+                    </div>
+                    <div class="mt-8 flex flex-col gap-4">
+                        <div class="flex gap-4 justify-center md:justify-normal">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    class="icon_fb_footer">
+                                    <g clip-path="url(#a)">
+                                        <path fill="#42526E"
+                                            d="M24 12.072a12 12 0 1 0-13.875 11.854V15.54H7.078v-3.47h3.047V9.429c0-3.007 1.792-4.67 4.532-4.67.9.014 1.798.092 2.687.235v2.954H15.83a1.734 1.734 0 0 0-1.955 1.875v2.25H17.2l-.532 3.469h-2.8v8.385A12 12 0 0 0 24 12.072Z" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="a">
+                                            <path fill="#fff" d="M0 0h24v24H0z" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    class="icon_shared icon_twitter_footer">
+                                    <path fill="#42526E"
+                                        d="M23.8 7.2s-.2-1.7-1-2.4c-.9-1-1.9-1-2.4-1-3.4-.2-8.4-.2-8.4-.2s-5 0-8.4.2c-.5.1-1.5.1-2.4 1-.7.7-1 2.4-1 2.4S0 9.1 0 11.1v1.8c0 1.9.2 3.9.2 3.9s.2 1.7 1 2.4c.9 1 2.1.9 2.6 1 1.9.2 8.2.2 8.2.2s5 0 8.4-.3c.5-.1 1.5-.1 2.4-1 .7-.7 1-2.4 1-2.4s.2-1.9.2-3.9V11c0-1.9-.2-3.8-.2-3.8ZM9.5 15.1V8.4l6.5 3.4-6.5 3.3Z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    class="icon_shared icon_pin_footer">
+                                    <g clip-path="url(#a)">
+                                        <path fill="#42526E"
+                                            d="M21 2H3a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm-.3 4.8-8 7c-.218.112-.456.18-.7.2a1.852 1.852 0 0 1-.7-.2l-8-7a.992.992 0 1 1 1.3-1.5l7.3 6.4 7.3-6.4a.972.972 0 0 1 1.4.1.9.9 0 0 1 .1 1.4Z" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="a">
+                                            <path fill="#fff" d="M0 0h24v24H0z" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    class="icon_shared icon_email_footer">
+                                    <path fill="#42526E"
+                                        d="M10.188 8.937v4.122a3.587 3.587 0 0 0-4.5 3.324 3.242 3.242 0 0 0 3.467 3.442 3.23 3.23 0 0 0 3.467-3.489V0H16.7c.693 4.315 2.851 5.316 5.74 5.778v4.135a12.292 12.292 0 0 1-5.625-1.9v8.167c0 3.7-2.19 7.82-7.627 7.82a7.665 7.665 0 0 1-7.628-7.859 7.516 7.516 0 0 1 8.63-7.204Z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            PRINTWAY GLOBAL PTE. LTD
+                        </div>
+                        <div>
+                            68 CIRCULAR ROAD #02-01 SINGAPORE (049422)
+                        </div>
+                        <div class="cursor-pointer">
+                            Hotline: +84898588077
+                        </div>
+                        <div class="cursor-pointer">
+                            Email: contact@printway.io
+                        </div>
+                        <div>
+                            Groups: <span class="cursor-pointer">
+                                http://fb.com/groups/printway
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-[60px] pb-4 md:flex gap-10 hidden ">
+                    <div>
+                        <div class="font-bold pb-6">
+                            Policy
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div>
+                                Production And Shipping
+                            </div>
+                            <div>
+                                Return And Exchange
+                            </div>
+                            <div>
+                                Refund
+                            </div>
+                            <div>
+                                Term Of Service
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-bold pb-6">
+                            Integrations
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div>
+                                Etsy
+                            </div>
+                            <div>
+                                Amazon
+                            </div>
+                            <div>
+                                Shopify
+                            </div>
+                            <div>
+                                Woo Commerce
+                            </div>
+                            <div>
+                                Order desk
+                            </div>
+                            <div>
+                                CSV
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-8 block md:hidden pb-8">
+                    <div>
+                        <div class="font-bold m-1 py-2 pr-2 flex justify-between items-center hover:bg-[#f0f0f0] hover:rounded-md hover:cursor-pointer"
+                            onclick="integrationsOnClick()">
+                            <div>
+                                Integrations
+                            </div>
+                            <div id="integrations-angle-down" class="h-3 w-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                                </svg>
+                            </div>
+                            <div id="integrations-angle-up" class="h-3 w-3 hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="list-intergrations" class="hidden flex-col gap-3 ">
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Etsy
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Amazon
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Shopify
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Woo Commerce
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Order desk
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                CSV
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-bold m-1 py-2 pr-2 flex justify-between items-center hover:bg-[#f0f0f0] hover:rounded-md hover:cursor-pointer"
+                            onclick="policyOnClick()">
+                            <div>
+                                Policy
+                            </div>
+                            <div id="policy-angle-down" class="h-3 w-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                                </svg>
+                            </div>
+                            <div id="policy-angle-up" class="h-3 w-3 hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="list-policy" class=" hidden flex-col gap-3 ">
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Production And Shipping
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Return And Exchange
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Refund
+                            </div>
+                            <div class="cursor-pointer hover:bg-[#f0f0f0] py-[6px] ml-[30px] hover:rounded-md">
+                                Term Of Service
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div
+                class="max-w-[1175px] mx-auto flex md:flex-row flex-col pt-6 items-center md:justify-between footer-border">
+                <div>
+                    <img src="https://printway.io/images/paymethod.png" alt="">
+                </div>
+                <div>
+                    <img src="https://printway.io/images/deliver.png" alt="">
+                </div>
+            </div>
+            <div class="pb-8 mt-6 text-center text-[#42526e]">
+                © 2024 PRINTWAY. All Rights Reserved
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        function sideBarOnClick() {
+            const sideBar = document.getElementById("sidebar")
+            if (sideBar.className === 'sidebar hidden') {
+                sideBar.className = 'sidebar block'
+            } else {
+                sideBar.className = 'sidebar hidden'
+            }
+            const sideBarActice = document.getElementById("sidebar-active")
+            if (sideBarActice.className === 'sidebar-active hidden') {
+                sideBarActice.className = 'sidebar-active block'
+            } else {
+                sideBarActice.className = 'sidebar-active hidden'
+            }
+        }
+
+        function closeSideBar() {
+            const sideBar = document.getElementById("sidebar")
+            if (sideBar.className === 'sidebar block') {
+                sideBar.className = 'sidebar hidden'
+            } else {
+                sideBar.className = 'sidebar block'
+            }
+            const sideBarActice = document.getElementById("sidebar-active")
+            if (sideBarActice.className === 'sidebar-active block') {
+                sideBarActice.className = 'sidebar-active hidden'
+            } else {
+                sideBarActice.className = 'sidebar-active block'
+            }
+        }
+    </script>
+
+    <script>
+        function chooseProductOnClick(imageChooseId) {
+            const id = imageChooseId.id
+            const lastChar = id.charAt(id.length - 1)
+
+            const listImageBig = ['image-big-1', 'image-big-2', 'image-big-3', 'image-big-4', 'image-big-5', 'image-big-6', 'image-big-7']
+            const listImageSmall = ['image-small-1', 'image-small-2', 'image-small-3', 'image-small-4', 'image-small-5', 'image-small-6', 'image-small-7']
+
+
+            for (const image of listImageBig) {
+                const imageBig = document.getElementById(image)
+                if (image === `image-big-${lastChar}`) {
+                    imageBig.classList.remove('hidden')
+                } else {
+                    imageBig.classList.add('hidden')
+                }
+            }
+            for (const image of listImageSmall) {
+                const imageSmall = document.getElementById(image)
+                if (image === `image-small-${lastChar}`) {
+                    imageSmall.classList.add('image-active')
+                } else {
+                    imageSmall.classList.remove('image-active')
+                }
+            }
+        }
+    </script>
+
+    <script>
+        function integrationsOnClick() {
+            const IntegrationsDown = document.getElementById('integrations-angle-down');
+            const IntegrationsUp = document.getElementById('integrations-angle-up');
+            const IntergrationsList = document.getElementById('list-intergrations')
+            if (!IntegrationsDown.classList.contains('hidden') && IntegrationsUp.classList.contains('hidden')) {
+                IntegrationsDown.classList.add('hidden')
+                IntegrationsUp.classList.remove('hidden')
+                IntergrationsList.classList.remove('hidden')
+                IntergrationsList.classList.add('flex')
+            } else {
+                IntegrationsDown.classList.remove('hidden')
+                IntegrationsUp.classList.add('hidden')
+                IntergrationsList.classList.add('hidden')
+                IntergrationsList.classList.remove('flex')
+            }
+        }
+
+        function policyOnClick() {
+            const policyDown = document.getElementById('policy-angle-down');
+            const policyUp = document.getElementById('policy-angle-up');
+            const policyList = document.getElementById('list-policy')
+            if (!policyDown.classList.contains('hidden') && policyUp.classList.contains('hidden')) {
+                policyDown.classList.add('hidden')
+                policyUp.classList.remove('hidden')
+                policyList.classList.remove('hidden')
+                policyList.classList.add('flex')
+            } else {
+                policyDown.classList.remove('hidden')
+                policyUp.classList.add('hidden')
+                policyList.classList.add('hidden')
+                policyList.classList.remove('flex')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

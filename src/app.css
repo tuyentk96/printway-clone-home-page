@@ -1,0 +1,114 @@
+body {
+    font-family: Plus Jakarta Sans, sans-serif;
+}
+
+.item-catalog:hover .all-product,
+.item-catalog .all-product:hover {
+    display: flex;
+}
+
+.product-list>ul>li {
+    margin-bottom: 5px;
+}
+
+.sidebar {
+    min-width: 70%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+
+.sidebar-active {
+    min-width: 30%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #8c8c8c;
+    opacity: 0.2;
+}
+
+.text-title {
+    font-size: 46px;
+    line-height: 52px;
+}
+
+
+.image-active {
+    border: 2px solid #f06022;
+    border-radius: 4px;
+    height: 100px;
+    width: 100px;
+    overflow-x: visible;
+}
+
+.border_line::before {
+    content: "";
+    width: 12em;
+    border-bottom: 2px solid #d4e1f4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 100%;
+    z-index: -1;
+}
+
+.circle_step {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #f06022;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -16px;
+    right: -8px;
+    background-color: white;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.items_hover {
+    position: relative;
+}
+
+.items_hover:hover::before {
+    content: url(./public/image/ic-arrow-left.png);
+    position: absolute;
+    top: 34%;
+    left: 40%;
+    width: 54px;
+    height: 54px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_box_home {
+    background-image: url(./public/image/bg_contact.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-x: -70px;
+}
+
+.footer-border {
+    border-top: 1px solid #dfe1e6;
+}
+
+.message-box-chat {}
+
+@media only screen and (max-width: 768px) {
+    .image-active {
+        border: 2px solid #f06022;
+        border-radius: 4px;
+        height: 72px;
+        width: 72px;
+    }
+}
